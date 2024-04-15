@@ -1,16 +1,16 @@
-import numpy as np
 
-def give_bmi(height: list[int | float], weight: list[int | float]) -> list[int | float]:
+
+def give_bmi(height: list[int | float],
+             weight: list[int | float]) -> list[int | float]:
+    assert len(height) == len(weight)
     bmis = []
     for meters, kilograms in zip(height, weight):
+        assert isinstance(meters, (int, float)) and isinstance(kilograms,
+                                                               (int, float))
         bmis.append(kilograms / (meters ** 2))
-    return(bmis)
-#your code here
+    return (bmis)
+
+
 def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
-    bools = []
-    for indice in bmi:
-        if (indice > limit):
-            bools.append(True)
-        else:
-            bools.append(False)
+    bools = [indice > limit for indice in bmi]
     return bools

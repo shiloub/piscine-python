@@ -1,19 +1,13 @@
-from PIL import Image
+from PIL import Image, UnidentifiedImageError
 import numpy as np
 
 
-def ft_load(path: str) :# -> array: #(you can return to the desired format)
-    img = Image.open(path)
-    # shape = (img.height, img.width, len(img.mode))
-    # print("The shape of image is:", shape)
-    # pixels = []
-    # row = []
-    # for i in range (img.height):
-    #     row = []
-    #     for j in range(img.width):
-    #         row.append(list(img.getpixel((j, i))))
-    #     pixels.append(row)
-    # return (pixels)
+def ft_load(path: str):
+    try:
+        img = Image.open(path)
+    except (FileNotFoundError, PermissionError, UnidentifiedImageError) as error:
+        print("Error: ", error)
+        return (None)
     array = np.array(img)
     print("The shape of image is:", array.shape)
     return array
