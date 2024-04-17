@@ -3,7 +3,7 @@ from pimp_image import ft_invert, ft_red
 from pimp_image import ft_green, ft_blue, ft_grey
 
 
-array = ft_load("../landscape.jpg")
+array = ft_load("../images/landscape.jpg")
 ft_invert(array)
 ft_red(array)
 ft_green(array)
