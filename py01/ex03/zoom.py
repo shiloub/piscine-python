@@ -4,7 +4,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 def print_plt(array: np.array):
-    plt.imshow(array, cmap="coolwarm_r")
+    plt.imshow(array, cmap="Greys_r")
     plt.show()
 
 def parse_params(array, start: tuple[int, int], end: tuple[int, int]):
@@ -41,6 +41,7 @@ def print_zoomed_bw(array: np.array, start = (0, 0), end = None):
     bw = np.array(bw)
     bw = bw // 3
     print("New shape after slicing:", bw.shape)
+    print(bw)
     print_plt(bw)
 
 
@@ -54,19 +55,12 @@ def print_zoomed_bw(array: np.array, start = (0, 0), end = None):
 
 
 def main():
-    pixels = ft_load("../animal.jpeg")
-    # print(pixels)
+    pixels = ft_load("../images/animal.jpeg")
+    if pixels is None:
+        print("Error loading the file")
+        return(1)
+    print(pixels)
     print_zoomed_bw(pixels, (450, 100), (850, 500))
-    # print_plt(pixels)
-
-    # zoomed_pixels: np.array = zoom_and_black_and_white(pixels)
-    # print("--------------------------")
-    # print("New shape after slicing:", zoomed_pixels.shape)
-    # print(zoomed_pixels)
-    # print_plt(zoomed_pixels)
-
-    # plt.show()
-
 
 if __name__ == "__main__":
     main()

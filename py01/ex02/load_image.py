@@ -6,7 +6,8 @@ def ft_load(path: str):
     try:
         assert path.lower().endswith((".jpg", ".jpeg")), "Wrong file extention"
         img = Image.open(path)
-    except (FileNotFoundError, PermissionError, UnidentifiedImageError, AssertionError) as error:
+    except (FileNotFoundError, PermissionError,
+            UnidentifiedImageError, AssertionError) as error:
         print("Error: ", error)
         return (None)
     array = np.array(img)
