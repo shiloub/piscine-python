@@ -3,6 +3,7 @@ import numpy as np
 
 
 def ft_load(path: str):
+    """load an image and return its np.array version"""
     try:
         assert path.lower().endswith((".jpg", ".jpeg")), "Wrong file extention"
         img = Image.open(path)

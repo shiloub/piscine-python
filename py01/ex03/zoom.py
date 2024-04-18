@@ -4,11 +4,13 @@ from matplotlib import pyplot as plt
 
 
 def print_plt(array: np.array):
+    """print the grey version image of a np.array"""
     plt.imshow(array, "binary_r")
     plt.show()
 
 
 def parse_params(array, start: tuple[int, int], end: tuple[int, int]):
+    """parse parametters"""
     if (end is None):
         end = (len(array[0], len(array)))
     for (x, y) in [start, end]:
@@ -25,6 +27,7 @@ def parse_params(array, start: tuple[int, int], end: tuple[int, int]):
 
 
 def print_zoomed_bw(array: np.array, start=(0, 0), end=None):
+    """zoomed on an image, and print it grey"""
     try:
         xstart, xend, ystart, yend = parse_params(array, start, end)
     except AssertionError as err:
@@ -39,6 +42,8 @@ def print_zoomed_bw(array: np.array, start=(0, 0), end=None):
 
 
 def main():
+    """load an image, print some informations about it.
+    then print it grey and zoomed"""
     pixels = ft_load("../images/animal.jpeg")
     if pixels is None:
         print("Error loading the file")

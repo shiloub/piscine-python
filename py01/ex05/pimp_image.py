@@ -2,8 +2,11 @@
 from PIL import Image
 import numpy as np
 
+
 def print_image(array: np.array):
+    """print a np.array image"""
     Image.fromarray(array).show()
+
 
 def get_average_rgb(array: np.array):
     """
@@ -19,15 +22,17 @@ def get_average_rgb(array: np.array):
             average = average // array.shape[2]
             average_array[i, j] = average
     return (average_array)
-            
-            
+
+
 def ft_invert(array: np.array):
     """Inverts the color of the image received"""
     inverted = array.copy()
     inverted = 255 - inverted
     print_image(inverted)
 
+
 def ft_red(array: np.array):
+    """Print a red version of the images recieved"""
     average_colors = get_average_rgb(array)
     red = array.copy()
 
@@ -36,7 +41,9 @@ def ft_red(array: np.array):
             red[i, j] = [average_colors[i, j], 0, 0]
     print_image(red)
 
+
 def ft_green(array: np.array):
+    """Print a green version of the images recieved"""
     average_colors = get_average_rgb(array)
     green = array.copy()
 
@@ -45,7 +52,9 @@ def ft_green(array: np.array):
             green[i, j] = [0, average_colors[i, j], 0]
     print_image(green)
 
+
 def ft_blue(array: np.array):
+    """Print a blue version of the images recieved"""
     average_colors = get_average_rgb(array)
     blue = array.copy()
 
@@ -54,19 +63,24 @@ def ft_blue(array: np.array):
             blue[i, j] = [0, 0, average_colors[i, j]]
     print_image(blue)
 
+
 def ft_grey(array: np.array):
+    """Print a grey version of the images recieved"""
     average_colors = get_average_rgb(array)
     grey = array.copy()
 
     for i in range(average_colors.shape[0]):
         for j in range(average_colors.shape[1]):
-            grey[i, j] = [average_colors[i, j], average_colors[i, j], average_colors[i, j]]
+            grey[i, j] = [average_colors[i, j],
+                          average_colors[i, j],
+                          average_colors[i, j]]
     print_image(grey)
 
+
 def ft_yellow(array: np.array):
+    """Print a yellow version of the images recieved"""
     average_colors = get_average_rgb(array)
     yellow = array.copy()
-
     for i in range(average_colors.shape[0]):
         for j in range(average_colors.shape[1]):
             yellow[i, j] = [average_colors[i, j], 0, average_colors[i, j]]

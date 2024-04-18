@@ -4,11 +4,13 @@ from matplotlib import pyplot as plt
 
 
 def print_plt(array: np.array):
+    """print the grey version image of a np.array"""
     plt.imshow(array, cmap="gray")
     plt.show()
 
 
 def parse_params(array, start: tuple[int, int], end: tuple[int, int]):
+    """parse parametters"""
     if (end is None):
         end = (len(array[0], len(array)))
     for (x, y) in [start, end]:
@@ -25,6 +27,7 @@ def parse_params(array, start: tuple[int, int], end: tuple[int, int]):
 
 
 def rotate_array(array: np.array) -> np.array:
+    """rotate a np.array and return it"""
     rotated = np.empty((len(array[0]), len(array)), dtype="int")
     for i in range(len(array)):
         for j in range(len(array[0])):
@@ -33,6 +36,7 @@ def rotate_array(array: np.array) -> np.array:
 
 
 def print_zoomed_bw_rotated(array: np.array, start=(0, 0), end=None):
+    """zoomed on an image, rotate it and print it grey"""
     try:
         xstart, xend, ystart, yend = parse_params(array, start, end)
     except AssertionError as err:
@@ -50,6 +54,8 @@ def print_zoomed_bw_rotated(array: np.array, start=(0, 0), end=None):
 
 
 def main():
+    """load an image, print some informations about it.
+    then rotate it, print it grey and zoomed"""
     pixels = ft_load("../images/animal.jpeg")
     print_zoomed_bw_rotated(pixels, (450, 100), (850, 500))
 
