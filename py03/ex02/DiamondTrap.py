@@ -9,14 +9,18 @@ class King(Baratheon, Lannister):
 
     # @property
     def get_eyes(self):
+        """getter for eyes"""
         return self.eyes
 
     # @property
     def get_hairs(self):
+        """getter for hairs"""
         return self.hairs
 
     def set_eyes(self, color):
+        """setter for eyes"""
         self.eyes = color
 
     def set_hairs(self, color):
+        """setter for hairs"""
         self.hairs = color
